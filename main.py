@@ -115,7 +115,7 @@ def login(usernames, passcodes):
 
 
 while True:
-    print("WELCOME TO ARIKO BANK\n\n TO LOGIN")
+    print("WELCOME TO ANGURA BANK\n\n TO LOGIN")
     name = login(usernames, passcodes)
     transactions(balances, usernames, name)
     to_proceed = input(
