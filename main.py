@@ -70,7 +70,7 @@ usernames = ["jona", "deric", "paul"]
 passcodes = ["1234", "1245", "1235"]
 balances = [20000, 30000, 40000]
 
-
+# takes input option from user and returns the choice made
 def option():
     """
     asks user for the choice he would like to make
@@ -92,6 +92,7 @@ def option():
     return choice
 
 
+# handles login logic.
 def login(usernames, passcodes):
     i = 3
     while True:
@@ -116,13 +117,18 @@ def login(usernames, passcodes):
 
 while True:
     print("WELCOME TO ANGURA BANK\n\n TO LOGIN")
-    name = login(usernames, passcodes)
-    transactions(balances, usernames, name)
-    to_proceed = input(
-        "would you like to do another transactio\n if YES press Y\n if NO press N\n"
-    ).lower()
-    if to_proceed == "y":
+    name = login(usernames, passcodes)  # handles logins
+    to_proceed = "y"
+    while to_proceed == "y":  # keeps offering transactions till user terminates
         transactions(balances, usernames, name)
+        to_proceed = input(
+            "would you like to do another transactio\n if YES press Y\n if NO press N\n"
+        ).lower()
+        if to_proceed == "y":  # if user wants to do more transactions
+            transactions(balances, usernames, name)
+        else:  # if user is done and wants to exit.
+            print("You have terminated transaction")
+            print("Thanks for choosing ANGURA BANK\n\n")
 
 
 # OPTIONS
